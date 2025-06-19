@@ -22,7 +22,8 @@ A secure and scalable ASP.NET Core Web API for managing employee attendance, ove
 
 - ASP.NET Core Web API (.NET 8)
 - Entity Framework Core
-- SQL Server / SQLite / InMemory (for tests)
+- SQL Server
+- SQLite / InMemory (for tests)
 - JWT Authentication
 - xUnit + FluentAssertions for testing
 
@@ -84,15 +85,18 @@ Navigate to:
 
 This project follows Clean Layered Architecture:
 
-├── Controllers      → API endpoints
-├── Services         → Business logic layer
-├── Repositories     → Data access layer (EF Core)
-├── DTO              → Request/Response models
-├── Models           → Entity classes (DB tables)
-├── Middleware       → Custom middlewares (e.g., RequestId, JWT auth)
-├── Utils            → Helper methods/utilities
-├── Data             → DbContext and seeding
-├── Migrations       → EF Core migrations
+| Layer/Folder   | Responsibility                                                                 |
+| -------------- | ------------------------------------------------------------------------------ |
+| `Controllers`  | Handles incoming HTTP requests and returns responses (API endpoints).          |
+| `Services`     | Contains business logic; coordinates between repositories and DTOs.            |
+| `Repositories` | Handles direct database access using Entity Framework Core.                    |
+| `DTO`          | Defines request and response objects (Data Transfer Objects).                  |
+| `Models`       | Contains entity classes that represent database tables.                        |
+| `Middleware`   | Custom request pipeline logic (e.g., JWT auth, IP logging, RequestId tracing). |
+| `Utils`        | Shared helpers and utility functions used across the project.                  |
+| `Data`         | Contains `DbContext` and database configuration/seeding logic.                 |
+| `Migrations`   | Auto-generated EF Core migration files to manage schema changes.               |
+
 
 ✅ IHttpContextAccessor used for IP address and user tracing
 
