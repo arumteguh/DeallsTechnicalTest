@@ -20,6 +20,7 @@ A secure and scalable ASP.NET Core Web API for managing employee attendance, ove
 
 ## 📦 Tech Stack
 
+- Visual Studio 2022
 - ASP.NET Core Web API (.NET 8)
 - Entity Framework Core
 - SQL Server
